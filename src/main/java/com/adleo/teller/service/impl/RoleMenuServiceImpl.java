@@ -15,11 +15,13 @@ import com.adleo.teller.service.RoleMenuService;
 import com.adleo.teller.service.RoleService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class RoleMenuServiceImpl implements RoleMenuService {
     @Autowired
     private RoleMenuRepository roleMenuRepository;
