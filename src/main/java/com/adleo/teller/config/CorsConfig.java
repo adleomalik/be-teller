@@ -13,10 +13,11 @@ public class CorsConfig {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**") // Berlaku untuk semua endpoint backend
-                        .allowedOrigins("http://localhost:3000") // Mengizinkan akses dari Next.js frontend
+                registry.addMapping("/**") // Berlaku untuk semua endpoint
+                        .allowedOriginPatterns("*") // Mengizinkan semua domain (Vercel, Swagger, Localhost)
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-                        .allowedHeaders("*");
+                        .allowedHeaders("*")
+                        .allowCredentials(true);
             }
         };
     }
