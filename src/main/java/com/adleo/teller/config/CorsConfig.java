@@ -13,11 +13,11 @@ public class CorsConfig {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**") // Berlaku untuk semua endpoint
-                        .allowedOriginPatterns("*") // Mengizinkan semua domain (Vercel, Swagger, Localhost)
+                registry.addMapping("/**")
+                        .allowedOriginPatterns("*") // Menggunakan patterns agar diizinkan oleh Spring Boot
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-                        .allowedHeaders("*")
-                        .allowCredentials(true);
+                        .allowedHeaders("*");
+                // .allowCredentials(true); <-- DIKOMENTARI DULU untuk mencegah error crash "*"
             }
         };
     }
